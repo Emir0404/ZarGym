@@ -1,0 +1,300 @@
+@page "/"
+@model IndexModel
+@{
+    ViewData["Title"] = "Žar – teretana u Sarajevu";
+    ViewData["Description"] = "Žar je teretana u srcu Sarajeva: slobodni tegovi, grupni treninzi, boks i treneri koji te prate. Prvi trening je besplatan. (Demo stranica izmišljene teretane.)";
+}
+
+<!-- NASLOVNI DIO -->
+<section class="hero" id="pocetak">
+    <img class="hero-slika" src="~/img/hero-kettlebell.jpg" width="1920" height="1100" fetchpriority="high"
+         alt="Red crnih kettlebell tegova na gumenom podu pored crvenog nosača">
+    <div class="hero-sjaj" aria-hidden="true"></div>
+    <canvas class="iskre" aria-hidden="true"></canvas>
+
+    <div class="sadrzaj hero-sadrzaj">
+        <p class="nadnaslov hero-nadnaslov">Teretana · Sarajevo</p>
+        <h1 class="hero-naslov">
+            <span class="kontura">Žar počinje</span>
+            <span class="zar-tekst">u tebi.</span>
+        </h1>
+        <p class="uvod">Prava oprema, pravi treneri i mjesto na kojem se niko ne žuri da ti sudi. Dođi na besplatan probni trening i uvjeri se sam.</p>
+        <div class="dugmad">
+            <a class="dugme" href="tel:@Sadrzaj.TelefonLink">Besplatan probni trening <svg aria-hidden="true"><use href="#i-strelica" /></svg></a>
+            <a class="dugme dugme-staklo" href="#programi">Pogledaj programe</a>
+        </div>
+    </div>
+
+    <div class="sadrzaj hero-dno">
+        <span class="hero-otvoreno"><i></i> Otvoreno svaki dan od 05:00</span>
+        <a class="spusti" href="#brojke" aria-label="Spusti se">
+            <svg aria-hidden="true"><use href="#i-strelica" /></svg>
+        </a>
+    </div>
+</section>
+
+<!-- BROJKE -->
+<section class="brojke" id="brojke" aria-label="Žar u brojkama">
+    <div class="sadrzaj brojke-mreza">
+        @foreach (var b in Model.Brojke)
+        {
+            <div class="brojka rv">
+                <strong data-broj="@b.Vrijednost" data-sufiks="@b.Sufiks">@Sadrzaj.Broj(b.Vrijednost)@b.Sufiks</strong>
+                <span>@b.Oznaka</span>
+            </div>
+        }
+    </div>
+</section>
+
+<!-- IZREKA: riječi se pale dok skroluješ -->
+<section class="izreka" id="izreka">
+    <div class="sadrzaj">
+        <p class="izreka-tekst" data-rijeci>Snaga se ne dobije. Snaga se zaradi, jedan trening po jedan.</p>
+    </div>
+</section>
+
+<!-- PROGRAMI -->
+<section class="odjeljak" id="programi">
+    <div class="sadrzaj">
+        <div class="naslov-blok rv">
+            <p class="nadnaslov">Programi</p>
+            <h2>Pet načina da se <span class="zar-tekst">zagrijiš</span></h2>
+            <p>Svaki program ima nivo za početnike i za napredne. Treneri te ispravljaju, ne ostavljaju te same.</p>
+        </div>
+
+        <div class="programi-mreza">
+            @foreach (var p in Model.Programi)
+            {
+                <article class="program rv @p.Klasa">
+                    <img src="~/img/@p.Slika" alt="@p.AltTekst" loading="lazy" width="1400" height="933">
+                    <div class="program-sjena" aria-hidden="true"></div>
+                    <span class="program-broj" aria-hidden="true">@p.Broj</span>
+                    <div class="program-tijelo">
+                        <span class="chip chip-nivo">@p.Nivo</span>
+                        <h3>@p.Naziv</h3>
+                        <p>@p.Opis</p>
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- ZAŠTO ŽAR -->
+<section class="odjeljak odjeljak-tamno" id="zasto">
+    <div class="sadrzaj">
+        <div class="naslov-blok rv">
+            <p class="nadnaslov">Zašto baš Žar</p>
+            <h2>Teretana napravljena <span class="zar-tekst">za treniranje</span></h2>
+        </div>
+        <div class="zasto-mreza">
+            <article class="zasto rv">
+                <span class="zasto-broj" aria-hidden="true">01</span>
+                <span class="zasto-ikona"><svg aria-hidden="true"><use href="#i-tegovi" /></svg></span>
+                <h3>Oprema bez kompromisa</h3>
+                <p>Preko 60 sprava i stanica, slobodni tegovi do 60 kg, šipke, kettlebellovi i prostrana kardio zona. Sve održavano i sve čisto.</p>
+            </article>
+            <article class="zasto rv">
+                <span class="zasto-broj" aria-hidden="true">02</span>
+                <span class="zasto-ikona"><svg aria-hidden="true"><use href="#i-stit" /></svg></span>
+                <h3>Treneri koji te vide</h3>
+                <p>Na podu su uvijek treneri. Isprave tehniku prije nego što postane povreda i kažu ti kada je vrijeme za više.</p>
+            </article>
+            <article class="zasto rv">
+                <span class="zasto-broj" aria-hidden="true">03</span>
+                <span class="zasto-ikona"><svg aria-hidden="true"><use href="#i-ljudi" /></svg></span>
+                <h3>Mjesta za svakoga</h3>
+                <p>Početnik ili takmičar, nađemo plan za tvoj nivo i tvoje vrijeme. Bez ocjenjivanja i bez gledanja sa strane.</p>
+            </article>
+            <article class="zasto rv">
+                <span class="zasto-broj" aria-hidden="true">04</span>
+                <span class="zasto-ikona"><svg aria-hidden="true"><use href="#i-sat" /></svg></span>
+                <h3>Otvoreno kad ti treba</h3>
+                <p>Od 05:00 ujutro do 23:00 uvečer. Prije posla, poslije posla, a nedjeljom bez žurbe.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- PROSTOR -->
+<section class="odjeljak" id="prostor">
+    <div class="sadrzaj prostor-mreza">
+        <figure class="prostor-slika rv">
+            <img src="~/img/prostor.jpg" alt="Prostrana unutrašnjost teretane sa spravama i zonom za funkcionalni trening" loading="lazy" width="1400" height="840">
+            <img class="prostor-mala" src="~/img/tanjir-zeleni.jpg" alt="Zeleni teg na šipki, izbliza" loading="lazy" width="900" height="900">
+        </figure>
+        <div class="prostor-tekst rv">
+            <p class="nadnaslov">Naš prostor</p>
+            <h2>1.200 m² bez <span class="zar-tekst">gužve</span></h2>
+            <p>Visok plafon, gumeni pod i svjetlo koje se ne gasi usred serije. Zona slobodnih tegova, kardio zona, ring za boks i prostor za istezanje. Svlačionice imaju tuševe i ormariće, a mi mislimo na to da ti ne treba čekati red.</p>
+            <ul class="oznake">
+                <li>Slobodni tegovi</li><li>Kardio zona</li><li>Boks ring</li><li>Funkcionalna zona</li><li>Svlačionice i tuševi</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- RASPORED -->
+<section class="odjeljak odjeljak-tamno" id="raspored">
+    <div class="sadrzaj">
+        <div class="naslov-blok rv">
+            <p class="nadnaslov">Grupni treninzi</p>
+            <h2>Dođi kad ti <span class="zar-tekst">odgovara</span></h2>
+            <p>Ne treba prijava. Dođi petnaestak minuta ranije, a mi ćemo se pobrinuti za ostalo.</p>
+        </div>
+
+        <div class="raspored rv">
+            <div class="tabovi" role="tablist" aria-label="Dani u sedmici">
+                @foreach (var d in Model.Raspored)
+                {
+                    <button type="button" class="tab" role="tab" id="tab-@((int)d.Dan)" aria-controls="panel-@((int)d.Dan)"
+                            aria-selected="false" data-dan="@((int)d.Dan)">
+                        <span class="tab-kratko">@Sadrzaj.KratkiDan(d.Dan)</span>
+                        <span class="tab-puno">@Sadrzaj.NazivDana(d.Dan)</span>
+                    </button>
+                }
+            </div>
+
+            @foreach (var d in Model.Raspored)
+            {
+                <div class="panel" role="tabpanel" id="panel-@((int)d.Dan)" aria-labelledby="tab-@((int)d.Dan)" data-dan="@((int)d.Dan)">
+                    <h3 class="panel-naslov">@Sadrzaj.NazivDana(d.Dan)</h3>
+                    @foreach (var t in d.Termini)
+                    {
+                        <div class="termin">
+                            <time class="termin-vrijeme" datetime="@Sadrzaj.Sat(t.Pocetak)">@Sadrzaj.Sat(t.Pocetak)</time>
+                            <div class="termin-opis">
+                                <strong>@t.Naziv</strong>
+                                <span>Trener: @t.Trener</span>
+                            </div>
+                            <div class="termin-oznake">
+                                <span class="chip">@t.TrajanjeMin min</span>
+                                <span class="chip chip-nivo">@t.Nivo</span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- ČLANARINE -->
+<section class="odjeljak" id="clanarine">
+    <div class="sadrzaj">
+        <div class="naslov-blok rv">
+            <p class="nadnaslov">Članarine</p>
+            <h2>Bez upisnine i bez <span class="zar-tekst">skrivenih troškova</span></h2>
+            <p>Prvi trening je besplatan. Što duže ostaneš, to je mjesec jeftiniji.</p>
+        </div>
+        <div class="planovi">
+            @foreach (var p in Model.Planovi)
+            {
+                <article class="plan rv @(p.Istaknut ? "plan-istaknut" : "")">
+                    @if (p.Istaknut)
+                    {
+                        <span class="plan-oznaka">Najpopularnije</span>
+                    }
+                    <h3>@p.Naziv</h3>
+                    <p class="plan-cijena"><strong>@Sadrzaj.KM(p.Cijena)</strong> <span>@p.Period</span></p>
+                    <p class="plan-mjesecno">
+                        @if (p.Mjeseci > 1)
+                        {
+                            <text>To je @Sadrzaj.KM(p.PoMjesecu) mjesečno</text>
+                        }
+                        else
+                        {
+                            <text>Bez ugovorne obaveze</text>
+                        }
+                    </p>
+                    <ul>
+                        @foreach (var pr in p.Prednosti)
+                        {
+                            <li><svg aria-hidden="true"><use href="#i-kvaka" /></svg> @pr</li>
+                        }
+                    </ul>
+                    <a class="dugme @(p.Istaknut ? "" : "dugme-staklo")" href="#kontakt">Kako se upisati</a>
+                </article>
+            }
+        </div>
+        <p class="plan-napomena rv">@Sadrzaj.DnevnaUlaznica Cijene su izmišljene (demo).</p>
+    </div>
+</section>
+
+<!-- TRENERI -->
+<section class="odjeljak odjeljak-tamno" id="treneri">
+    <div class="sadrzaj">
+        <div class="naslov-blok rv">
+            <p class="nadnaslov">Naš tim</p>
+            <h2>Ljudi iza <span class="zar-tekst">žara</span></h2>
+        </div>
+        <div class="treneri-mreza">
+            @foreach (var t in Model.Treneri)
+            {
+                <article class="trener rv">
+                    <span class="trener-krug" aria-hidden="true">@t.Inicijali</span>
+                    <h3>@t.Ime</h3>
+                    <p class="trener-uloga">@t.Uloga</p>
+                    <p>@t.Specijalnost</p>
+                </article>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- UTISCI -->
+<section class="odjeljak" id="utisci">
+    <div class="sadrzaj">
+        <div class="naslov-blok rv">
+            <p class="nadnaslov">Članovi kažu</p>
+            <h2>Šta kažu oni koji <span class="zar-tekst">dolaze</span></h2>
+        </div>
+        <div class="utisci-mreza">
+            @foreach (var u in Model.Utisci)
+            {
+                <blockquote class="utisak rv">
+                    <p>@u.Tekst</p>
+                    <footer><strong>@u.Ime</strong> <span>@u.Detalj</span></footer>
+                </blockquote>
+            }
+        </div>
+        <p class="plan-napomena rv">Primjeri utisaka, izmišljeni članovi.</p>
+    </div>
+</section>
+
+<!-- POZIV NA AKCIJU -->
+<section class="poziv" id="poziv">
+    <img src="~/img/funkcionalni.jpg" alt="" loading="lazy" width="1400" height="933" aria-hidden="true">
+    <div class="poziv-sjena" aria-hidden="true"></div>
+    <div class="sadrzaj poziv-sadrzaj rv">
+        <h2>Prvi trening je <span class="zar-tekst">na nas.</span></h2>
+        <p>Dođi sutra, obuci šta imaš i vidi kako izgleda teretana u kojoj se niko ne žuri.</p>
+        <a class="dugme dugme-veliko" href="tel:@Sadrzaj.TelefonLink">Nazovi i dogovori dolazak <svg aria-hidden="true"><use href="#i-strelica" /></svg></a>
+    </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="odjeljak" id="kontakt">
+    <div class="sadrzaj kontakt-mreza">
+        <div class="rv">
+            <p class="nadnaslov">Kontakt</p>
+            <h2>Svrati na <span class="zar-tekst">trening</span></h2>
+            <ul class="kontakt-lista">
+                <li><svg aria-hidden="true"><use href="#i-lokacija" /></svg><div><strong>Adresa</strong><span>@Sadrzaj.Adresa</span></div></li>
+                <li><svg aria-hidden="true"><use href="#i-telefon" /></svg><div><strong>Telefon</strong><a href="tel:@Sadrzaj.TelefonLink">@Sadrzaj.Telefon</a></div></li>
+                <li><svg aria-hidden="true"><use href="#i-posta" /></svg><div><strong>E-pošta</strong><a href="mailto:@Sadrzaj.Eposta">@Sadrzaj.Eposta</a></div></li>
+            </ul>
+            <p class="sitno">Adresa, telefon i e-pošta su izmišljeni.</p>
+        </div>
+        <div class="radno rv">
+            <h3><svg aria-hidden="true"><use href="#i-sat" /></svg> Radno vrijeme</h3>
+            <ul>
+                @foreach (var r in Model.Radno)
+                {
+                    <li><span>@r.Dani</span><strong>@r.Sati</strong></li>
+                }
+            </ul>
+            <p>Praznicima radimo skraćeno. Raspored objavljujemo u prostoru teretane.</p>
+        </div>
+    </div>
+</section>

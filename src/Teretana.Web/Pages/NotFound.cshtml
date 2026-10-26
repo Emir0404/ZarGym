@@ -1,0 +1,15 @@
+@page "/404"
+@{
+    ViewData["Title"] = "Stranica nije pronađena – Žar";
+    ViewData["Description"] = "Stranica koju tražiš ne postoji.";
+    Response.StatusCode = 404;
+}
+
+<section class="greska">
+    <div class="sadrzaj">
+        <p class="greska-kod">404</p>
+        <h1>Ovdje nema <span class="zar-tekst">ničega.</span></h1>
+        <p>Stranica koju tražiš ne postoji ili je premještena. Vrati se na početnu i nastavi s treningom.</p>
+        <a class="dugme" href="/">Na početnu</a>
+    </div>
+</section>

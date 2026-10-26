@@ -1,0 +1,23 @@
+bin/
+obj/
+publish/
+cloudflare-site/
+.vs/
+*.user
+*.suo
+
+# Browser checks: installed packages and the screenshots they produce
+tests/e2e/node_modules/
+tests/e2e/slike*/
+
+# Cloudflare local state (it contains the account email)
+cloudflare-deploy/.wrangler/
+cloudflare-deploy/node_modules/
+
+# Local notes and launchers
+CLAUDE.md
+Pokreni.bat
+*.log
+
+# Bosnian-language source notes (replaced by IMAGE-CREDITS.md)
+SLIKE-IZVORI.md

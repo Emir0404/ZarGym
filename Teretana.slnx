@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Teretana.Web/Teretana.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Teretana.Tests/Teretana.Tests.csproj" />
+  </Folder>
+</Solution>

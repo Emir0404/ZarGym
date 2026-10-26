@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="bs" class="no-js" translate="no">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#090706" />
+    <meta name="google" content="notranslate" />
+    <title>@ViewData["Title"]</title>
+    <meta name="description" content="@ViewData["Description"]" />
+    <meta property="og:title" content="@ViewData["Title"]" />
+    <meta property="og:description" content="@ViewData["Description"]" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="~/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="~/fonts/anton-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="~/fonts/inter-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script>document.documentElement.className = 'js';</script>
+</head>
+<body>
+    <partial name="_Ikone" />
+    <div id="vrh"></div>
+
+    <header class="zaglavlje" id="zaglavlje">
+        <div class="sadrzaj zaglavlje-red">
+            <a class="logo" href="#vrh" aria-label="Žar, na početak">
+                <svg class="logo-znak" aria-hidden="true"><use href="#i-plamen" /></svg>
+                <span>Žar</span>
+            </a>
+            <nav class="glavni-meni" aria-label="Glavni meni">
+                <a href="#programi">Programi</a>
+                <a href="#raspored">Raspored</a>
+                <a href="#clanarine">Članarine</a>
+                <a href="#treneri">Treneri</a>
+                <a href="#kontakt">Kontakt</a>
+            </nav>
+            <a class="dugme dugme-malo zaglavlje-cta" href="#kontakt">Probni trening</a>
+            <button class="burger" id="burger" aria-expanded="false" aria-controls="mobilni-meni" aria-label="Otvorite meni">
+                <span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobilni-meni" id="mobilni-meni" aria-hidden="true">
+        <nav aria-label="Mobilni meni">
+            <a href="#programi">Programi</a>
+            <a href="#raspored">Raspored</a>
+            <a href="#clanarine">Članarine</a>
+            <a href="#treneri">Treneri</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
+        <a class="dugme" href="tel:@Sadrzaj.TelefonLink">Nazovite nas</a>
+    </div>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="podnozje">
+        <div class="sadrzaj podnozje-red">
+            <a class="logo logo-podnozje" href="#vrh" aria-label="Na vrh">
+                <svg class="logo-znak" aria-hidden="true"><use href="#i-plamen" /></svg>
+                <span>Žar</span>
+            </a>
+            <div class="podnozje-tekst">
+                <p><strong>Demo stranica.</strong> Žar je izmišljena teretana, napravljena kao primjer promotivne stranice, u C# i ASP.NET Core (.NET 10). Imena, cijene i adresa su izmišljeni.</p>
+                <p class="sitno">Fotografije:
+                    <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">Pexels</a>
+                    (Pixabay, cottonbro studio, MART PRODUCTION, Pavel Danilyuk, KoolShooters, TUBARONES PHOTOGRAPHY, Eyecon Design, Fahad Puthawala). Ilustracije su originalne.</p>
+            </div>
+            <a href="#vrh" class="gore">Na vrh ↑</a>
+        </div>
+    </footer>
+
+    <a class="plutajuce-zovi" href="tel:@Sadrzaj.TelefonLink" aria-label="Pozovite Žar">
+        <svg aria-hidden="true"><use href="#i-telefon" /></svg>
+    </a>
+
+    <script src="~/js/site.js" asp-append-version="true" defer></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+@page "/Error"
+@{
+    ViewData["Title"] = "Greška – Žar";
+    ViewData["Description"] = "Došlo je do greške.";
+}
+
+<section class="greska">
+    <div class="sadrzaj">
+        <p class="greska-kod">500</p>
+        <h1>Nešto je <span class="zar-tekst">pošlo po zlu.</span></h1>
+        <p>Došlo je do greške na našoj strani. Pokušaj ponovo za koji trenutak ili nas nazovi na <a href="tel:@Sadrzaj.TelefonLink">@Sadrzaj.Telefon</a>.</p>
+        <a class="dugme" href="/">Na početnu</a>
+    </div>
+</section>
